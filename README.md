@@ -1,6 +1,6 @@
-# Bizel
+# Bizy
 
-Bizel is a mobile app to organize your freelancer work.
+Bizy is a mobile app to organize your project.
 
 # Installation
 
