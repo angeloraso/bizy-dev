@@ -1,0 +1,16 @@
+<div class="group-card-component" (click)="onclick.emit(group)">
+  <span class="group-card__name" [style.color]="group?.color">{{group?.name}}</span>
+  <span class="group-card__description">{{group?.description}}</span>
+  <span class="group-card__last-row">
+    <span class="group-card__options">
+      <ion-icon
+        (click)="showOptions.emit(group); $event.stopPropagation()"
+        name="ellipsis-vertical-outline">
+      </ion-icon>
+    </span>
+    <span class="group-card__users">
+      <span class="users__count">{{group?.users?.length}}</span>
+      <span class="users__text">Members</span>
+    </span>
+  </span>
+</div>

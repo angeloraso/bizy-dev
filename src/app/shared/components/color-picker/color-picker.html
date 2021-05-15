@@ -1,0 +1,11 @@
+<div class="color-picker-component" (click)="showColors()">
+
+  <span class="color-picker__title">Color</span>
+
+  <span
+    class="color-picker__value"
+    [ngClass]="{'color-picker__value--empty': !color}"
+    [ngStyle]="{'background': color}">
+  </span>
+
+</div>

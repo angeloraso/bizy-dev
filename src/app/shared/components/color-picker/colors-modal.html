@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title>Select color</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cancel</ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="colors-modal-component">
+
+  <div class="colors">
+    <span
+      *ngFor="let color of colors"
+      (click)="selectColor(color.value)"
+      class="color"
+      [ngStyle]="{'background': color.value}">
+      <div [ngClass]="{'color--active': color.active}"></div>
+    </span>
+  </div>
+
+</ion-content>

@@ -1,0 +1,9 @@
+<div class="confirm-footer-component">
+
+  <a class="confirm-footer__link" (click)="cancelClick.emit()">{{cancel}}</a>
+
+  <ion-button type="submit" (click)="confirmClick.emit()">
+    <ion-icon *ngIf="icon" slot="start" name="checkmark-outline"></ion-icon>
+    {{confirm}}
+  </ion-button>
+</div>

@@ -1,0 +1,38 @@
+<div class="user-card-component" (click)="onclick.emit(user)">
+  <div class="user-card__information">
+
+    <div class="information__avatar">
+      <ion-avatar>
+        <img [src]="user.picture"/>
+      </ion-avatar>
+    </div>
+
+    <div class="information__data">
+
+      <div class="data__name-debt">
+
+        <ion-label class="data__name">{{user.name}}</ion-label>
+
+        <span *ngIf="user?.noDebt" class="data__no-debt">
+          No debt
+        </span>
+
+      </div>
+
+      <div class="data__groups">
+        <ion-chip [ngStyle]="{'background': group.color}" *ngFor="let group of user.groups">
+          <ion-label>{{group.name}}</ion-label>
+        </ion-chip>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="user-card__actions">
+    <ion-icon
+      class="action__record-icon"
+      name="card-outline"
+      (click)="action.emit('record'); $event.stopPropagation();">
+    </ion-icon>
+  </div>
+</div>

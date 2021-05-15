@@ -1,0 +1,26 @@
+@import 'src/styles/colors';
+
+.confirm-footer-component {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  height: 70px;
+  padding: 0.5rem;
+  place-items: center;
+  width: 100%;
+
+  .confirm-footer__link {
+    color: $primary;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  ion-button {
+    font-weight: bold;
+    width: 100%;
+  }
+
+  ion-icon {
+    color: #fff;
+  }
+}

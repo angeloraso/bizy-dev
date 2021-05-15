@@ -1,0 +1,8 @@
+<div class="event-calendar-component">
+  <mwl-calendar-month-view
+    [viewDate]="viewDate"
+    [events]="calendarEvents"
+    [activeDayIsOpen]="selectCurrentDay"
+    (dayClicked)="dayClicked($event.day)">
+  </mwl-calendar-month-view>
+</div>

@@ -1,0 +1,37 @@
+
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title>Groups</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="groups-component">
+
+  <div class="groups--empty" *ngIf="groups?.length === 0">
+    <img src="/assets/img/groups_empty.svg"/>
+    <span>Create a group to organize your activities!</span>
+  </div>
+
+  <div class="groups-grid" *ngIf="groups?.length > 0">
+
+    <group-card
+        *ngFor="let group of groups"
+        class="group-card"
+        [group]="group"
+        (onclick)="goToGroup($event)"
+        (showOptions)="showGroupOptions($event)">
+    </group-card>
+
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="createGroup()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

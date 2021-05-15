@@ -1,0 +1,66 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button (action)="clearCache()"></back-button>
+
+    <ion-title>Attendance lists</ion-title>
+
+  </ion-toolbar>
+
+  <prev-next
+    [text]="dateText"
+    [total]="100"
+    (prev)="previousMonth()"
+    (next)="nextMonth()">
+  </prev-next>
+
+</ion-header>
+
+<ion-content class="attendance-sheets-component">
+
+  <div class="attendance-sheets__section">
+    <span class="section__title">Attendances</span>
+
+    <span
+      class="section__sheet-item"
+      *ngFor="let user of users | slice: 0 : usersMaxLimit"
+      (click)="showUserAttendances(user)">
+      <ion-avatar>
+        <img [src]="user.picture"/>
+      </ion-avatar>
+      <span class="sheet-item__text">{{user.name}}</span>
+      <span class="sheet-item__user-attendance">{{user.attendances}}</span>
+    </span>
+
+    <div class="empty-msg" *ngIf="users?.length === 0">
+      There are no registered attendances
+    </div>
+
+    <span class="section__more-items" (click)="showMoreUsers()">
+      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+    </span>
+  </div>
+
+  <div class="attendance-sheets__section">
+    <span class="section__title">Attendance sheets</span>
+
+    <span
+      class="section__sheet-item"
+      *ngFor="let attendanceSheet of attendanceSheets | slice: 0 : attendanceSheetsMaxLimit"
+      (click)="showAttendanceSheet(attendanceSheet)">
+      <ion-icon name="clipboard-outline"></ion-icon>
+      <span class="sheet-item__text">{{attendanceSheet.date | date: 'dd/MM/YYYY HH:mm'}}</span>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </span>
+
+    <div class="empty-msg" *ngIf="attendanceSheets?.length === 0">
+      There are no registered attendance sheets
+    </div>
+
+    <span class="section__more-items" (click)="showMoreAttendanceSheets()">
+      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+    </span>
+  </div>
+
+</ion-content>

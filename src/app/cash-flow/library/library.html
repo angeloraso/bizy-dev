@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button></back-button>
+
+    <ion-title>Library</ion-title>
+
+  </ion-toolbar>
+
+  <ion-searchbar *ngIf="library?.length > 0" debounce="250" (ionChange)="search = $event.detail.value"></ion-searchbar>
+
+</ion-header>
+
+<ion-content class="library-component">
+
+  <div class="library--empty" *ngIf="library?.length === 0">
+    <img src="/assets/img/library_empty.svg"/>
+    <span>Create reusable records to complete your library!</span>
+  </div>
+
+  <div class="library-grid" *ngIf="library?.length > 0">
+
+    <library-record-card
+        *ngFor="let record of library | search: search : ['name']"
+        class="record-card"
+        [record]="record"
+        (onclick)="selectRecord(record)"
+        (showOptions)="showLibraryRecordOptions(record)">
+    </library-record-card>
+
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="createLibraryRecord()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

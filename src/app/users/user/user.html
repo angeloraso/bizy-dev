@@ -1,0 +1,118 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button></back-button>
+
+    <ion-title>{{title}}</ion-title>
+
+    <ion-buttons slot="end" *ngIf="editMode">
+      <ion-icon class="header-icon" name="trash-outline" (click)="showDeleteAlert()"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="user-component">
+
+  <div class="user__image-name">
+    <div class="user__image">
+      <ion-avatar (click)="selectImg($event)">
+        <img [src]="user?.picture" />
+      </ion-avatar>
+    </div>
+
+    <div class="user__name">
+      <ion-item>
+        <ion-label position="stacked"><strong>Name:</strong></ion-label>
+        <ion-input
+          type="text"
+          maxlength="50"
+          [ngModel]="user?.name"
+          (ngModelChange)="user.name = $event; saveCache()"
+          clearInput="true"
+          debounce="250">
+        </ion-input>
+      </ion-item>
+    </div>
+
+  </div>
+
+  <div class="user__data">
+
+    <ion-item class="user__input">
+      <ion-label position="stacked"><strong>Date of birth:</strong><span class="data__age" *ngIf="age">{{age}} years old</span></ion-label>
+      <ion-datetime
+        [ngModel]="user?.date"
+        (ngModelChange)="user.date = $event; saveCache(); setAge($event);"
+        placeholder="Agregar fecha"
+        done-text="Guardar"
+        cancel-text="Cancelar"
+        displayFormat="DD-MM-YYYY">
+      </ion-datetime>
+    </ion-item>
+
+    <div class="data__phones">
+      <ion-item class="user__input" *ngFor="let phone of user?.phones; let i = index">
+        <ion-label position="stacked"><strong>Teléfono:</strong></ion-label>
+        <ion-input
+          type="tel"
+          maxlength="15"
+          [ngModel]="phone"
+          (ngModelChange)="user?.phones[i] = $event; saveCache()"
+          debounce="250">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="user__input">
+        <ion-label position="stacked"><strong>Phone:</strong></ion-label>
+        <ion-input
+          type="tel"
+          maxlength="15"
+          [(ngModel)]="newPhone">
+        </ion-input>
+      </ion-item>
+
+      <ion-icon class="add-icon" name="add-circle-outline" (click)="addPhoneInput()"></ion-icon>
+
+    </div>
+
+  </div>
+
+  <div class="user__groups">
+
+    <div class="groups__title">
+      <ion-label position="stacked">Groups</ion-label>
+      <ion-buttons>
+        <ion-icon class="add-icon" name="add-circle-outline" (click)="openGroupSelect()"></ion-icon>
+        <ion-select
+          style="visibility: hidden;"
+          #groupSelect
+          interface="alert"
+          multiple="true"
+          cancelText="Cancelar"
+          [ngModel]="user?.groups"
+          [compareWith]="compareWith"
+          (ngModelChange)="user.groups = $event; saveCache()"
+          okText="Seleccionar">
+          <ion-select-option [value]="group" *ngFor="let group of groups">{{group?.name}}</ion-select-option>
+        </ion-select>
+      </ion-buttons>
+    </div>
+
+    <div class="groups__content">
+      <ion-chip [ngStyle]="{'background': group?.color}" *ngFor="let group of user?.groups">
+        <ion-label>{{group?.name}}</ion-label>
+      </ion-chip>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<confirm-footer
+  [confirm]="confirmText"
+  (cancelClick)="goBack()"
+  (confirmClick)="save()">
+</confirm-footer>

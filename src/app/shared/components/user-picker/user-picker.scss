@@ -1,0 +1,43 @@
+@import 'src/styles/variables';
+@import 'src/styles/colors';
+
+.user-picker-component {
+  align-items: center;
+  color: $text-color;
+  cursor: pointer;
+  display: grid;
+  font-size: 1.4rem;
+  grid-template-columns: 15% 78% 7%;
+  height: 50px;
+  margin-top: $grid-gap;
+
+  ion-icon {
+    font-size: 2rem;
+  }
+}
+
+.user-picker__icon--selected {
+  color: $primary;
+}
+
+.user-picker__name {
+  color: $primary;
+  position: relative;
+  top: 2px;
+}
+
+.user-picker__placeholder {
+  opacity: 0.8;
+}
+
+.user-picker-component--disabled {
+  opacity: 0.3;
+}
+
+.users-modal-component {
+  .user-grid {
+    display: grid;
+    gap: $grid-gap;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+}

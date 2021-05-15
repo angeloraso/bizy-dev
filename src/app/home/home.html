@@ -1,0 +1,11 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom" *ngIf="showTabsFromSideMenu && showTabsFromApp">
+
+    <ion-tab-button *ngFor="let option of options" [tab]="option.path" (click)=goTo(option.path)>
+      <ion-icon [name]="option.icon"></ion-icon>
+      <ion-label>{{option.title}}</ion-label>
+      <ion-badge *ngIf="badge?.show && (badge?.path === option.path)" color="danger"></ion-badge>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

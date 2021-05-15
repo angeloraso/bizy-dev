@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button (action)="clearCache()"></back-button>
+
+    <ion-title>User attendance</ion-title>
+
+  </ion-toolbar>
+
+  <prev-next
+    [text]="dateText"
+    [total]="100"
+    (prev)="previousMonth()"
+    (next)="nextMonth()">
+  </prev-next>
+
+</ion-header>
+
+<ion-content class="user-attendance-component">
+
+    <event-calendar
+      [date]="selectedDate"
+      [events]="attendanceEvents">
+    </event-calendar>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title>Select group</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cancel</ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="groups-modal-component">
+
+  <div class="empty-msg" *ngIf="selectableGroups?.length === 0">
+    There are no groups to select
+  </div>
+
+  <div class="group-grid">
+
+    <div class="selectable-group-card" *ngFor="let group of selectableGroups" (click)="selectGroup(group)">
+
+      <span class="group__color" [ngStyle]="{'background-color': group.color}"></span>
+
+      <span class="group__name-description">
+        <span class="group__name">{{group.name}}</span>
+        <span class="group__description">{{group.description}}</span>
+      </span>
+
+      <span class="group__checkbox">
+        <ion-checkbox slot="end" [ngModel]="group.active"></ion-checkbox>
+      </span>
+
+    </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,75 @@
+/* $primary: #1a8aaa;
+$primary-light: #97c8eb;
+$primary-dark: #364958;
+$secondary: #87bba2;
+$secondary-light: #ddf3dd;
+$secondary-dark: #4a6767;
+$accent: #e07a5f; */
+
+$primary: #0b7bb5;
+$secondary: #174473;
+$accent: #e62829;
+
+$default: #666;
+$success: #5abcab;
+$info: #2b94f4;
+$warning: #f7a64c;
+$danger: #e76565;
+
+$income: #5abcab;
+$expense: #f4b99f;
+
+$gold: #fcc85b;
+$silver: #aaa;
+$bronze: #ed8c61;
+
+$surface: #97cfeb;
+$text-color: #263341;
+$hover-color: #f3f3f3;
+
+// Toast classes
+%toast {
+  --border-radius: 6px;
+  --box-shadow: 0 3.8px 3.8px rgba(0, 0, 0, 0.068),
+    0 9.6px 9.6px rgba(0, 0, 0, 0.098),
+    0 19.5px 19.5px rgba(0, 0, 0, 0.122),
+    0 40.2px 40.2px rgba(0, 0, 0, 0.152),
+    0 110px 110px rgba(0, 0, 0, 0.22);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.toast--success {
+  --background: #5abcab;
+  @extend %toast;
+}
+
+.toast--info {
+  --background: #2b94f4;
+  @extend %toast;
+}
+
+.toast--default {
+  --background: #666;
+  @extend %toast;
+}
+
+.toast--warning {
+  --background: #f7a64c;
+  @extend %toast;
+}
+
+.toast--danger {
+  --background: #e76565;
+  @extend %toast;
+}
+
+.toast--new-version {
+
+  --background: #2b94f4;
+  --button-color: #fff;
+  @extend %toast;
+}
+

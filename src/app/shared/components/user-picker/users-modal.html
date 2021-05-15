@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title>Select user</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cancel</ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-searchbar *ngIf="users.length > 0" debounce="250" (ionChange)="search = $event.detail.value"></ion-searchbar>
+
+</ion-header>
+
+<ion-content class="users-modal-component">
+
+  <div class="empty-msg" *ngIf="users?.length === 0">
+    There are no groups to select
+  </div>
+
+  <div class="user-grid">
+
+    <selectable-user-card
+      *ngFor="let user of users | search: search : ['name']"
+      [user]="user"
+      (check)="selectUser(user)">
+    </selectable-user-card>
+
+  </div>
+
+</ion-content>

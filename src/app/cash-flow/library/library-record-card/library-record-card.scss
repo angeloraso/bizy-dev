@@ -1,0 +1,79 @@
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.library-record-card-component {
+  @include card-styles;
+
+  .record__first-row {
+    display: grid;
+    grid-template-columns: 95% 5%;
+    width: 100%;
+  }
+
+  .record__category-name-amount {
+    align-items: center;
+    display: flex;
+  }
+
+  .record__category {
+    align-self: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px;
+  }
+
+  .record__name-amount {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  .record__name {
+    color: $text-color;
+    font-size: 2rem;
+    font-size: 1.6rem;
+  }
+
+  .record__amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .record__options-icon {
+    font-size: 1.2rem;
+  }
+
+  .record__second-row {
+    margin: 0.5rem 0;
+  }
+
+  .record__group-text {
+    color: $text-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 10px;
+    opacity: 0.8;
+  }
+
+  .record__third-row {
+    border-top: 1px solid $text-color;
+    padding-top: 5px;
+  }
+
+  .record__description-text {
+    color: $text-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 10px;
+    opacity: 0.8;
+  }
+
+  .record__description-value {
+    color: $text-color;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+}

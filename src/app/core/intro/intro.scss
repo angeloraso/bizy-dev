@@ -1,0 +1,21 @@
+@import 'src/styles/colors';
+
+.intro-component  {
+  ion-slides {
+    --bullet-background-active: #fff;
+    --bullet-background: #000;
+    height: 100%;
+  }
+
+  ion-slide {
+    color: $text-color;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  ion-text {
+    text-align: center;
+    width: 300px;
+  }
+}
+

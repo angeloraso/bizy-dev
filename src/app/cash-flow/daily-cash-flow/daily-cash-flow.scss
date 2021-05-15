@@ -1,0 +1,67 @@
+@import 'src/styles/colors';
+
+.daily-cash-flow-component {
+  cursor: pointer;
+  display: grid;
+  gap: 0.7rem;
+
+  .daily-cash-flow__header {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .daily-cash-flow__date {
+    color: $info;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .daily-cash-flow__total {
+    color: $text-color;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .daily-cash-flow__records {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .daily-cash-flow__record {
+    display: grid;
+    grid-template-columns: 10% 60% 30%;
+    place-items: center;
+  }
+
+  .record__icon {
+    border-radius: 50%;
+    color: #fff;
+    display: grid;
+    height: 35px;
+    place-items: center;
+    width: 35px;
+  }
+
+  .record__text {
+    justify-self: start;
+    padding-left: 1rem;
+  }
+
+  .text__category {
+    color: $text-color;
+    font-weight: bold;
+  }
+
+  .text__description {
+    color: $text-color;
+    opacity: 0.8;
+  }
+
+  .record__amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+    justify-self: end;
+  }
+}

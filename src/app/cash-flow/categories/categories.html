@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button></back-button>
+
+    <ion-title>Categories</ion-title>
+
+    <ion-buttons slot="end" [hidden]="deleteMode">
+      <ion-icon class="header-icon" name="trash-outline" (click)="deleteMode = true"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-searchbar debounce="250" (ionChange)="search = $event.detail.value"></ion-searchbar>
+
+</ion-header>
+
+<ion-content class="categories-component">
+
+  <div class="categories-grid">
+
+    <div
+      class="category-card"
+      (click)="selectCategory(category)"
+      *ngFor="let category of categories | search: search : ['name']">
+
+      <ion-icon class="category-card__icon" [ngStyle]="{'background-color': category.color}" [name]="category.icon"></ion-icon>
+
+      <span>{{category.name}}</span>
+
+      <ion-checkbox [hidden]="!deleteMode" [(ngModel)]="category.checked" (click)="$event.stopPropagation();"></ion-checkbox>
+
+      <ion-icon class="category-card__edit-icon" [hidden]="deleteMode" name="create-outline" (click)="editCategory(category); $event.stopPropagation();"></ion-icon>
+
+    </div>
+
+  </div>
+
+  <ion-fab [hidden]="deleteMode" vertical="bottom" horizontal="end" slot="fixed" (click)="createCategory()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+<confirm-footer
+  [hidden]="!deleteMode"
+  confirm="Remove"
+  (cancelClick)="cancelDelete()"
+  (confirmClick)="delete()">
+</confirm-footer>

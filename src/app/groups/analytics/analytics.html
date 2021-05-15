@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button></back-button>
+
+    <ion-title>Analytics</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="analytics-component">
+
+  <div class="abstract-section">
+
+    <span>
+      <div class="abstract-section__title">
+        Total {{currentMonth}}
+      </div>
+      <div class="abstract-section__month-cash-flow">
+        <label>${{monthCashFlowTotal}}</label>
+        <ng-container *ngIf="false" [ngSwitch]="monthCashFlowPercetage < 0">
+          <span class="loses" *ngSwitchCase="true">({{monthCashFlowPercetage}}%)</span>
+          <span class="earnings" *ngSwitchCase="false">(+ {{monthCashFlowPercetage}}%)</span>
+        </ng-container>
+      </div>
+    </span>
+
+    <span>
+      <div class="abstract-section__title">
+        Best member
+      </div>
+      <div class="abstract-section__best-user coming-soon">
+        <ion-icon name="trophy-outline"></ion-icon>
+        {{bestUser}}
+      </div>
+    </span>
+
+  </div>
+
+  <div class="analytics-section img-to-left" (click)="goTo('attendance-sheets')">
+    <img class="section__img" src="/assets/img/attendance_sheets.svg"/>
+    <span class="section__text">Attendance sheets</span>
+  </div>
+
+  <div class="analytics-section img-to-right" (click)="goTo('cash-flow')">
+    <span class="section__text">Incomes and expenses</span>
+    <img class="section__img" src="/assets/img/incomes_expenses.svg"/>
+  </div>
+
+  <div class="analytics-section img-to-left coming-soon" (click)="comingSoon()">
+    <img height="90" class="section__img" src="/assets/img/ranking.svg"/>
+    <span class="section__text">Ranking</span>
+  </div>
+
+</ion-content>

@@ -1,0 +1,11 @@
+.select-img-component {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+
+  .select-img__avatar {
+    height: 4rem;
+    width: 4rem;
+  }
+}

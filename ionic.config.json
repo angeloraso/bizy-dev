@@ -1,0 +1,7 @@
+{
+  "name": "bizel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

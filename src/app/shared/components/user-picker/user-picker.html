@@ -1,0 +1,11 @@
+<div class="user-picker-component" [ngClass]="{'user-picker-component--disabled': disabled}" (click)="showUsers()">
+
+  <ion-icon [ngClass]="{'user-picker__icon--selected': user?.name}" name="person-circle-outline"></ion-icon>
+
+  <span *ngIf="user?.name" class="user-picker__name">{{user?.name}}</span>
+
+  <span *ngIf="!user?.name" class="user-picker__placeholder">Select user</span>
+
+  <ion-icon name="chevron-forward-outline"></ion-icon>
+
+</div>

@@ -1,0 +1,94 @@
+@import 'src/styles/colors';
+$height: 40px;
+$width: 300px;
+$radius: 25px;
+
+.cash-flow-toggle-component {
+  border-radius: $radius;
+  height: $height;
+  position: relative;
+  width: $width;
+
+  input {
+    appearance: none;
+    background-color: lighten($text-color, 70%);
+    border-radius: $radius;
+    height: $height;
+    outline: none;
+    transition: 0.5s -0.1s;
+    width: $width;
+
+    &::before,
+    &::after {
+      font-size: 1.2rem;
+      position: absolute;
+      top: 20%;
+      z-index: 2;
+    }
+
+    &::before {
+      content: 'Expense';
+      left: 16%;
+    }
+
+    &::after {
+      content: 'Income';
+      right: 16%;
+    }
+
+    &:checked {
+      &::before {
+        color: $expense;
+        font-weight: bold;
+        transition: color 0.5s;
+      }
+
+      &::after {
+        color: $text-color;
+        opacity: 0.6;
+        transition: color 0.5s;
+      }
+
+      & + label {
+        background: lighten($expense, 15%);
+        height: $height;
+        left: 0;
+        right: 50%;
+        transition: right 0.4s, left 0.5s, background 0.35s;
+      }
+    }
+
+    &:not(:checked) {
+      background-color: lighten($text-color, 60%);
+      transition: background 0.5s;
+
+      &::before {
+        color: $text-color;
+        opacity: 0.6;
+        transition: color 0.5s;
+      }
+
+      &::after {
+        color: $income;
+        font-weight: bold;
+        transition: color 0.5s;
+      }
+
+      & + label {
+        background: lighten($income, 30%);
+        height: $height;
+        left: 50%;
+        right: 0;
+        transition: left 0.4s, right 0.5s, background 0.35s;
+      }
+    }
+  }
+
+  label {
+    border-radius: $radius;
+    cursor: pointer;
+    position: absolute;
+    width: 50%;
+    z-index: 1;
+  }
+}

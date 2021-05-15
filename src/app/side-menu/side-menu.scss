@@ -1,0 +1,38 @@
+@import 'src/styles/colors';
+
+.side-menu-component {
+  --background: #fff;
+  --padding-top: 0;
+  --padding-end: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  height: 100%;
+
+  .side-menu__option {
+    --padding-start: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      .side-menu__option__icon,
+      .side-menu__option__text {
+        background-color: $hover-color;
+      }
+    }
+  }
+
+  .side-menu__option__icon {
+    color: $text-color;
+    height: 100%;
+  }
+
+  .side-menu__option__text {
+    color: $text-color;
+    height: 100%;
+    padding: 20px 0 0 10px;
+    width: 100%;
+  }
+
+  .side-menu__option--active {
+    color: $primary;
+  }
+}

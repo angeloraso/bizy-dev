@@ -1,0 +1,24 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+.settings-component {
+  .group-card {
+    margin-bottom: $grid-gap;
+    padding: 0 25%;
+  }
+
+  .settings-content {
+    @include card-styles;
+    height: fit-content;
+  }
+
+  .group__field {
+    margin-bottom: $grid-gap;
+  }
+
+  ion-label {
+    color: $text-color;
+    font-size: 1.4rem;
+  }
+}

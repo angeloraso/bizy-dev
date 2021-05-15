@@ -1,0 +1,55 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+@import 'src/styles/colors';
+
+.group-card-component {
+  @include card-styles;
+  cursor: pointer;
+  display: grid;
+  gap: 20px;
+  height: fit-content;
+  min-height: 190px;
+
+  .group-card__name {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .group-card__description {
+    color: $text-color;
+    font-size: 0.9rem;
+  }
+
+  .group-card__last-row {
+    display: grid;
+    grid-template-columns: 25% 75%;
+  }
+
+  .group-card__options {
+    align-items: flex-end;
+    cursor: pointer;
+    display: flex;
+    padding-bottom: 1rem;
+  }
+
+  .group-card__users {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-self: end;
+  }
+
+  .users__count {
+    color: $accent;
+    font-size: 1.4rem;
+    font-weight: bold;
+    opacity: 0.8;
+  }
+
+  .users__text {
+    color: $text-color;
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+
+}

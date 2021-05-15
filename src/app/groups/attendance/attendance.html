@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button (action)="clearCache()"></back-button>
+
+    <ion-title>Attendance sheet</ion-title>
+
+    <ion-buttons slot="end" *ngIf="attendanceSheet?.users.length > 0">
+      <ion-icon class="header-icon" name="trash-outline" (click)="showDeleteAlert()"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <prev-next
+    *ngIf="attendanceSheet?.users.length > 0"
+    [text]="attendanceSheet?.date | date: 'dd/MM/YYYY HH:mm'"
+    [total]="attendanceSheets?.length"
+    (prev)="previousAttendanceSheet()"
+    (next)="nextAttendanceSheet()">
+  </prev-next>
+
+  <ion-searchbar *ngIf="attendanceSheet?.users.length > 0" debounce="250" (ionChange)="search = $event.detail.value"></ion-searchbar>
+
+</ion-header>
+
+<ion-content class="attendance-component">
+
+  <div class="attendance--empty" *ngIf="attendanceSheet?.users?.length === 0">
+    <img src="/assets/img/attendance_empty.svg"/>
+    <span>It seems that this group has no members. Go to the Members section and create some new ones to start taking attendance!</span>
+    <ion-button
+      (click)="goToGroupUsers()">
+      Go to Members
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="user-grid">
+    <selectable-user-card
+      *ngFor="let user of attendanceSheet?.users | search: search : ['name']"
+      [user]="user"
+      [isChecked]="user.checked"
+      (check)="user.checked = $event; saveCache();">
+    </selectable-user-card>
+  </div>
+
+</ion-content>
+
+
+<confirm-footer
+  *ngIf="attendanceSheet?.users?.length > 0"
+  confirm="Guardar"
+  (cancelClick)="goBack()"
+  (confirmClick)="save()">
+</confirm-footer>
+

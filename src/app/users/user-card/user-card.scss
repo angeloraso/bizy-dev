@@ -1,0 +1,73 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+@import 'src/styles/colors';
+
+.user-card-component {
+  @include card-styles;
+
+  .user-card__information {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 100%;
+    height: fit-content;
+    width: 100%;
+  }
+
+  .information__avatar {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-around;
+
+    ion-avatar {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+
+  .information__data {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .data__name-debt {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    width: 100%;
+  }
+
+  .data__name {
+    color: $text-color;
+    font-size: 1.6rem;
+  }
+
+  .data__no-debt {
+    border: 1px solid $success;
+    border-radius: $border-radius;
+    color: $success;
+    font-size: 0.6rem;
+    height: fit-content;
+    justify-self: end;
+    padding: 3px;
+    width: fit-content;
+  }
+
+  .user-card__actions {
+    border-top: 1px solid $text-color;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 0.3rem;
+  }
+
+  %action-icon {
+    cursor: pointer;
+    font-size: 2rem;
+  }
+
+  .action__record-icon {
+    @extend %action-icon;
+    color: $income;
+  }
+}

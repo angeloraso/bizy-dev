@@ -1,0 +1,131 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button (action)="clearCache()"></back-button>
+
+    <ion-title>{{title}}</ion-title>
+
+    <ion-buttons slot="end" *ngIf="this.editMode">
+      <ion-icon class="header-icon" name="trash-outline" (click)="showDeleteAlert()"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="cash-flow-record-component">
+
+  <div class="cash-flow-record__content">
+
+    <cash-flow-toggle [(active)]="isExpense" (activeChange)="onToggle()"></cash-flow-toggle>
+
+    <div class="cash-flow-record__fields">
+
+      <div class="field__amount" [ngClass]="{'expense': isExpense, 'income': !isExpense}">
+        <div [ngSwitch]="isExpense">
+          <span *ngSwitchCase="true">-</span>
+          <span *ngSwitchCase="false">+</span>
+        </div>
+        <input
+          #amountInput
+          min="0"
+          class="field__amount-input"
+          [ngModel]="amount"
+          (ngModelChange)="setAmount($event)"
+          type="number"
+          placeholder="0"/>
+      </div>
+
+      <div class="field__load-from-library" *ngIf="!isLibraryRecord" (click)="goTo('library')">
+        <span>Load from library</span>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+
+      <div class="field___library-record-name" *ngIf="isLibraryRecord">
+        <ion-icon [ngClass]="{'field-icon--selected': record?.name}" name="bookmark-outline"></ion-icon>
+        <ion-input
+          [ngModel]="record?.name"
+          (ngModelChange)="record.name = $event; saveCache();"
+          placeholder="Name"
+          debounce="250">
+        </ion-input>
+      </div>
+
+      <group-picker
+        [group]="record?.group"
+        (groupChange)="record.group = $event; saveCache()">
+      </group-picker>
+
+      <user-picker
+        [disabled]="!record?.group"
+        [group]="record?.group"
+        [user]="record?.user"
+        (userChange)="record.user = $event; saveCache()">
+      </user-picker>
+
+      <div class="field___category" (click)="goTo('categories')">
+
+        <ng-container *ngIf="!record?.category?.name">
+          <ion-icon name="pricetag-outline"></ion-icon>
+          <span>Add category</span>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ng-container>
+
+        <ng-container *ngIf="record?.category?.name">
+          <ion-icon class="category-icon" [ngStyle]="{'background-color': record?.category?.color}" [name]="record?.category?.icon"></ion-icon>
+          <span class="category-name">{{record?.category?.name}}</span>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ng-container>
+
+      </div>
+
+      <div class="field___description">
+        <ion-icon [ngClass]="{'field-icon--selected': record?.description}" name="pencil-outline"></ion-icon>
+        <ion-input
+          [ngModel]="record?.description"
+          (ngModelChange)="record.description = $event; saveCache();"
+          placeholder="Description"
+          clearInput="true"
+          debounce="250">
+        </ion-input>
+      </div>
+
+      <div class="field___date" *ngIf="!isLibraryRecord">
+        <ion-icon [ngClass]="{'field-icon--selected': record?.date}" name="calendar-outline"></ion-icon>
+        <ion-datetime
+          [ngModel]="record?.date"
+          (ngModelChange)="record.date = $event; saveCache();"
+          [ngStyle]="{color: record?.date ? 'black' : 'inherit'}"
+          placeholder="Date"
+          done-text="Save"
+          cancel-text="Cancel"
+          displayFormat="DD-MM-YYYY HH:ss">
+        </ion-datetime>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+
+      <div class="field___payment">
+        <ion-icon [ngClass]="{'field-icon--selected': record?.payment}" name="card-outline"></ion-icon>
+        <ion-select interface="popover" [ngModel]="record?.payment" (ngModelChange)="record.payment = $event; saveCache();">
+          <ion-select-option value="cash">Cash</ion-select-option>
+          <ion-select-option value="digital">Digital money</ion-select-option>
+          <ion-select-option value="debit">Credit card</ion-select-option>
+          <ion-select-option value="credit">Debit card</ion-select-option>
+          <ion-select-option value="transfer">Transfer</ion-select-option>
+        </ion-select>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</ion-content>
+
+<confirm-footer
+  confirm="Save"
+  (cancelClick)="goBack()"
+  (confirmClick)="save()">
+</confirm-footer>

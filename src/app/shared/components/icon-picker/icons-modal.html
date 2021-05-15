@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title>Select icon</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cancel</ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="icons-modal-component">
+
+  <div class="icons">
+
+    <ion-icon
+      *ngFor="let icon of icons"
+      class="icon"
+      [name]="icon.value"
+      (click)="selectIcon(icon.value)"
+      [ngClass]="{'icon--active': icon.active}">
+    </ion-icon>
+
+  </div>
+
+</ion-content>

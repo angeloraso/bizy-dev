@@ -1,0 +1,47 @@
+<div class="library-record-card-component" (click)="onclick.emit(record)">
+
+  <div class="record__first-row">
+
+    <div class="record__category-name-amount">
+
+      <ion-icon
+        class="record__category"
+        [ngStyle]="{'background-color': record?.category.color}"
+        [name]="record?.category.icon">
+      </ion-icon>
+
+      <div class="record__name-amount">
+        <span class="record__name">
+          {{record?.name}}
+        </span>
+        <span class="record__amount" [ngClass]="{'expense': record?.amount < 0, 'income': record?.amount >= 0}">
+          <span *ngIf="record?.amount > 0">+</span>
+          {{record?.amount}}
+        </span>
+      </div>
+
+    </div>
+
+    <ion-icon
+      class="record__options-icon"
+      (click)="showOptions.emit(record); $event.stopPropagation()"
+      name="ellipsis-vertical-outline">
+    </ion-icon>
+
+  </div>
+
+  <div class="record__second-row">
+    <div>
+      <span class="record__group-text">Group:</span>
+      <ion-chip [ngStyle]="{'background': record?.group.color}">
+        <ion-label>{{record?.group.name}}</ion-label>
+      </ion-chip>
+    </div>
+  </div>
+
+  <div class="record__third-row">
+    <span class="record__description-text">Description:</span>
+    <span class="record__description-value">{{record?.description}}</span>
+  </div>
+
+</div>

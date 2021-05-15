@@ -1,0 +1,8 @@
+<div class="cash-flow-toggle-component">
+  <input
+    type="checkbox"
+    id="cash-flow-toggle"
+    [ngModel]="active"
+    (ngModelChange)="activeChange.emit($event)">
+  <label for="cash-flow-toggle"></label>
+</div>

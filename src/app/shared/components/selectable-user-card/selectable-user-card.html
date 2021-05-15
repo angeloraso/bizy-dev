@@ -1,0 +1,20 @@
+<div
+  class="selectable-user-card-component"
+  (click)="checkUser();"
+  [ngClass]="{'selectable-user-card--checked': isChecked }">
+
+    <div class="user__avatar">
+      <ion-avatar>
+        <img [src]="user.picture"/>
+      </ion-avatar>
+    </div>
+
+    <div class="user__name">
+      <ion-label>{{user.name}}</ion-label>
+    </div>
+
+    <div class="user__checkbox">
+      <ion-checkbox slot="end" [ngModel]="isChecked" [disabled]="readOnly"></ion-checkbox>
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+
+.selectable-user-card-component {
+  @include card-styles;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+
+  .user__avatar {
+    display: grid;
+    place-items: center;
+
+    ion-avatar {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+
+  .user__name {
+    align-items: center;
+    display: flex;
+    font-size: 1.4rem;
+    justify-content: flex-start;
+    margin-left: 1rem;
+  }
+
+  .user__checkbox {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.selectable-user-card--checked {
+  background-color: lighten($primary, 55%);
+}

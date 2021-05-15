@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title>Control center</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="control-component">
+
+  <div class="control__section update-section" *ngIf="newVersion" (click)="update()">
+    <img class="section__img" src="/assets/img/update.svg"/>
+    <span class="section__text">Update app</span>
+    <span class="notification-badge"></span>
+  </div>
+
+  <div class="control__section img-to-left" (click)="logout()">
+    <img class="section__img" src="/assets/img/logout.svg"/>
+    <span class="section__text">Log out</span>
+  </div>
+
+</ion-content>

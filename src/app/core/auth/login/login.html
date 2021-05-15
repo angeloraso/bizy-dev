@@ -1,0 +1,58 @@
+<div class="form-structor">
+  <div class="login">
+    <h2 class="form-title" #login (click)="selectLogin($event)"><span class="o-text" (click)="$event.stopPropagation()" *ngIf="showOr.login">o</span>Log in</h2>
+    <form class="form-holder" [formGroup]="loginForm">
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="email" class="input" formControlName="loginEmail" required></ion-input>
+      </ion-item>
+      <div *ngIf="loginEmail?.dirty && loginEmail?.errors">
+        <div class="error-msg" *ngIf="loginEmail?.errors?.required">
+          The email is required
+        </div>
+        <div class="error-msg" *ngIf="loginEmail?.errors?.email">
+          The email is invalid
+        </div>
+      </div>
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <show-hide-password>
+          <ion-input type="password" class="input" formControlName="loginPassword" required></ion-input>
+        </show-hide-password>
+      </ion-item>
+      <div class="error-msg" *ngIf="loginPassword?.dirty && loginPassword?.errors?.required">
+        The password is required
+      </div>
+    </form>
+    <ion-button [disabled]="loginForm.invalid" color="primary" class="submit-btn" (click)="onLogin()">Log in</ion-button>
+  </div>
+  <div class="signup slide-up">
+    <div class="center">
+      <h2 class="form-title" #signup (click)="selectSignUp($event)"><span class="o-text" (click)="$event.stopPropagation()" *ngIf="showOr.signUp">o</span>Sing up</h2>
+      <form class="form-holder" [formGroup]="registerForm">
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input type="email" class="input" formControlName="registerEmail" required></ion-input>
+        </ion-item>
+        <div *ngIf="registerEmail?.dirty && registerEmail?.errors">
+          <div class="error-msg" *ngIf="registerEmail?.errors?.required">
+            The email is required
+          </div>
+          <div class="error-msg" *ngIf="registerEmail?.errors?.email">
+            The email is invalid
+          </div>
+        </div>
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+          <show-hide-password>
+            <ion-input type="password" class="input" formControlName="registerPassword" required></ion-input>
+          </show-hide-password>
+        </ion-item>
+        <div class="error-msg" *ngIf="registerPassword?.dirty && registerPassword?.errors?.required">
+          The password is required
+        </div>
+      </form>
+      <ion-button [disabled]="registerForm.invalid" color="primary" class="submit-btn" (click)="onRegister()">Sing up</ion-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="daily-cash-flow-component">
+
+  <div class="daily-cash-flow__header">
+    <span class="daily-cash-flow__date">
+      {{dailyCashFlow.date | date: 'dd/MM/yyyy'}}
+    </span>
+
+    <span class="daily-cash-flow__total">
+      <span *ngIf="dailyCashFlow.total > 0">+</span>{{dailyCashFlow.total}}
+    </span>
+  </div>
+
+  <div class="daily-cash-flow__records">
+
+    <div class="daily-cash-flow__record" *ngFor="let record of dailyCashFlow.records" (click)="onclick.emit(record)">
+
+      <div class="record__icon" [ngStyle]="{'background-color': record.category?.color}">
+        <ion-icon [name]="record.category?.icon"></ion-icon>
+      </div>
+
+      <div class="record__text">
+        <div class="text__category">{{record.category?.name}}</div>
+        <div class="text__description">{{record.description}}</div>
+      </div>
+
+      <div class="record__amount" [ngClass]="{'income': record.amount >= 0, 'expense': record.amount < 0}">
+        $ {{record.amount}}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

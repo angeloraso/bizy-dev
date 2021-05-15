@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button></back-button>
+
+    <ion-title>{{group?.name}}</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="group-component">
+  <div class="group-options">
+
+    <div class="group-option img-to-left" (click)="goTo('attendance')">
+      <img class="option__img" src="/assets/img/take_attendance.svg"/>
+      <span class="option__text">Take attendance</span>
+    </div>
+
+    <div class="group-option img-to-right" (click)="goTo('users')">
+      <span class="option__text">Members</span>
+      <img class="option__img" src="/assets/img/users.svg"/>
+    </div>
+
+    <div class="group-option img-to-left" (click)="goTo('analytics')">
+      <img class="option__img" src="/assets/img/analytics.svg"/>
+      <span class="option__text">Analytics</span>
+    </div>
+
+    <div class="group-option img-to-right" (click)="goTo('settings')">
+      <span class="option__text">Settings</span>
+      <img class="option__img" src="/assets/img/settings.svg"/>
+    </div>
+  </div>
+</ion-content>

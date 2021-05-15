@@ -1,0 +1,5 @@
+<div class="prev-next-component">
+  <ion-icon class="prev-next__arrow-icon" name="chevron-back-outline" (click)="prev.emit(); counter = counter - 1" [ngStyle]="{'visibility': counter <= 0 ? 'hidden' : 'visible'}"></ion-icon>
+  <span class="prev-next__text">{{text}}</span>
+  <ion-icon class="prev-next__arrow-icon" name="chevron-forward-outline" (click)="next.emit(); counter = counter + 1" [ngStyle]="{'visibility': total === counter ? 'hidden' : 'visible'}"></ion-icon>
+</div>

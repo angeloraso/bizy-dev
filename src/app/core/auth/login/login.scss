@@ -1,0 +1,174 @@
+@import 'src/styles/colors';
+
+.form-structor {
+  &::after {
+    background-color: $surface;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .login {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    width: 65%;
+    z-index: 5;
+
+    &.slide-up {
+      top: 5%;
+      transform: translate(-50%, 0%);
+      transition: all 0.3s ease;
+    }
+
+    &.slide-up .form-holder,
+    &.slide-up .submit-btn {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &.slide-up .form-title {
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    &.slide-up .form-title span {
+      margin-right: 5px;
+      opacity: 1;
+      transition: all 0.3s ease;
+      visibility: visible;
+    }
+
+    .form-title {
+      color: #fff;
+      font-size: 1.7em;
+      text-align: center;
+
+      .o-text {
+        color: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        transition: all 0.3s ease;
+        visibility: hidden;
+      }
+    }
+
+    .form-holder {
+      background-color: #fff;
+      border-radius: 15px;
+      margin-top: 50px;
+      opacity: 1;
+      overflow: hidden;
+      padding: 1rem;
+      transition: all 0.3s ease;
+      visibility: visible;
+    }
+
+    .submit-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+  }
+
+  .signup {
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 20%;
+    transition: all 0.3s ease;
+    z-index: 5;
+
+    &::before {
+      background-color: #fff;
+      border-radius: 50%;
+      content: '';
+      height: 250px;
+      left: 50%;
+      position: absolute;
+      top: -20px;
+      transform: translate(-50%, 0);
+      transition: all 0.3s ease;
+      width: 200%;
+      z-index: 4;
+    }
+
+    .center {
+      left: 50%;
+      position: absolute;
+      top: calc(50% - 10%);
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease;
+      width: 65%;
+      z-index: 5;
+
+      .form-title {
+        color: #333;
+        font-size: 1.7em;
+        text-align: center;
+
+        .o-text {
+          color: rgba(0, 0, 0, 0.4);
+          transition: all 0.3s ease;
+        }
+      }
+
+      .form-holder {
+        background-color: #fff;
+        border: 2px solid #eee;
+        border-radius: 15px;
+        margin-top: 50px;
+        opacity: 1;
+        overflow: hidden;
+        padding: 1rem;
+        transition: all 0.3s ease;
+        visibility: visible;
+      }
+
+      .submit-btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+    }
+
+    &.slide-up {
+      top: 90%;
+      transition: all 0.3s ease;
+    }
+
+    &.slide-up .center {
+      top: 10%;
+      transform: translate(-50%, 0%);
+      transition: all 0.3s ease;
+    }
+
+    &.slide-up .form-holder,
+    &.slide-up .submit-btn {
+      opacity: 0;
+      transition: all 0.3s ease;
+      visibility: hidden;
+    }
+
+    &.slide-up .form-title {
+      cursor: pointer;
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+
+    &.slide-up .form-title span {
+      margin-right: 5px;
+      opacity: 1;
+      transition: all 0.3s ease;
+      visibility: visible;
+    }
+  }
+}

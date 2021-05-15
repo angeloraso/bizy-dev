@@ -1,0 +1,40 @@
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.category-component {
+  .category__test-card {
+    @include card-styles;
+    display: grid;
+    font-size: 1.2rem;
+    grid-template-columns: 20% 60% 20%;
+    height: fit-content;
+    margin-bottom: $grid-gap;
+
+    ion-icon {
+      align-self: center;
+      border-radius: 50%;
+      color: #fff;
+      margin-right: 10px;
+      padding: 7px;
+    }
+
+    span {
+      align-self: center;
+    }
+  }
+
+  .category-content {
+    @include card-styles;
+    height: fit-content;
+  }
+
+  ion-label {
+    color: $text-color;
+    font-size: 1.4rem;
+  }
+
+  .category__field {
+    margin-bottom: $grid-gap;
+  }
+}

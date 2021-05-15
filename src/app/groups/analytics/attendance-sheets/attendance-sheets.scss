@@ -1,0 +1,52 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+.attendance-sheets-component {
+  .attendance-sheets__section {
+    @include card-styles;
+    height: fit-content;
+    margin-bottom: $grid-gap;
+  }
+
+  .section__title {
+    color: $primary;
+    font-size: 1.6rem;
+    font-weight: bold;
+    height: fit-content;
+    min-height: 100px;
+  }
+
+  .section__sheet-item {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+
+    ion-icon {
+      color: $primary;
+      font-size: 2rem;
+    }
+  }
+
+  .section__more-items  {
+    ion-icon {
+      color: $primary;
+      display: inline-flex;
+      font-size: 3rem;
+      opacity: 0.7;
+      width: 100%;
+    }
+  }
+
+  .sheet-item__text {
+    color: $text-color;
+    font-size: 1.4rem;
+  }
+
+  .sheet-item__user-attendance {
+    color: $primary;
+    font-size: 1.4rem;
+  }
+}

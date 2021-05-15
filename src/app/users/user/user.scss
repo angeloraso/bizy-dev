@@ -1,0 +1,82 @@
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.user-component {
+  ion-label {
+    color: $text-color;
+    font-size: 1.4rem;
+  }
+
+  .user__image-name {
+    @include card-styles;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 120px;
+    margin-bottom: $grid-gap;
+    place-items: center;
+  }
+
+  .user__image {
+    ion-avatar {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+
+  .user__data {
+    @include card-styles;
+    height: fit-content;
+    margin-bottom: $grid-gap;
+    padding-bottom: $grid-gap;
+
+    .add-icon {
+      margin-top: 10px;
+    }
+  }
+
+  .data__age {
+    color: $info;
+    margin-left: 10px;
+  }
+
+  .user__groups {
+    @include card-styles;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    min-height: 100px;
+  }
+
+  %section-title {
+    align-items: center;
+    display: flex;
+    font-weight: bold;
+
+    ion-icon {
+      margin-left: 10px;
+    }
+  }
+
+  .add-icon {
+    color: $primary;
+    font-size: 1.6rem;
+  }
+
+  .groups__title {
+    @extend %section-title;
+  }
+
+  .groups__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: $grid-gap;
+  }
+
+  ion-chip {
+    ion-label {
+      color: #fff;
+      font-size: 1rem;
+    }
+  }
+}

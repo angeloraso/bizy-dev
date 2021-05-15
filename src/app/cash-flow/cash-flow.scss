@@ -1,0 +1,58 @@
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.cash-flow-component {
+  padding-bottom: 3rem;
+
+  .cash-flow--empty {
+    display: grid;
+    height: 100%;
+    opacity: 0.7;
+    place-items: center;
+    width: 100%;
+
+    img {
+      height: 15rem;
+      width: 15rem;
+    }
+
+    span {
+      align-self: start;
+      color: $text-color;
+      font-size: 1.6rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+  }
+
+  .total-card {
+    @include card-styles;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 7rem;
+    margin-bottom: 2rem;
+    place-items: center;
+    width: 100%;
+  }
+
+  .total-card__img {
+    height: 6rem;
+    width: 6rem;
+  }
+
+  .total-card__text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    justify-self: start;
+  }
+
+  .daily-cash-flows {
+    @include card-styles;
+    display: grid;
+    gap: $grid-gap;
+    height: fit-content;
+    margin-bottom: 4rem;
+    padding: 1rem;
+  }
+}

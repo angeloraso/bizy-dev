@@ -1,0 +1,39 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+$card-height: 100px;
+
+.control-component {
+  .control__section {
+    @include card-styles;
+    cursor: pointer;
+    display: grid;
+    height: $card-height !important;
+    margin-bottom: $grid-gap;
+    place-items: center;
+  }
+
+  .update-section {
+    grid-template-columns: 40% 50% 10%;
+  }
+
+  .img-to-left {
+    grid-template-columns: 40% 60%;
+  }
+
+  .img-to-right {
+    grid-template-columns: 60% 40%;
+  }
+
+  .section__img {
+    height: 80px;
+  }
+
+  .section__text {
+    color: $primary;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}

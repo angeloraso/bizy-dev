@@ -1,0 +1,144 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+.cash-flow-record-component {
+  .cash-flow-record__content {
+    @include card-styles;
+    display: grid;
+    grid-template-rows: 15% 85%;
+    height: fit-content;
+    padding: 1rem;
+  }
+
+  cash-flow-toggle {
+    justify-self: center;
+  }
+
+  .field__amount {
+    align-items: center;
+    display: flex;
+    font-size: 5rem;
+    width: 100%;
+  }
+
+  .field__amount--expense {
+    color: $expense;
+  }
+
+  .field__amount--income {
+    color: $income;
+  }
+
+  .field__amount-input {
+    background-color: transparent;
+    border: hidden;
+    outline: none;
+    width: 100%;
+  }
+
+  .field__amount-input::placeholder {
+    color: inherit;
+    opacity: 0.3; /*Change the opacity between 0 and 1*/
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  .field__amount-input::-webkit-outer-spin-button,
+  .field__amount-input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  .field__amount-input[type=number] {
+    appearance: textfield;
+  }
+
+  .field__load-from-library {
+    color: $info;
+    cursor: pointer;
+    display: grid;
+    font-size: 1.2rem;
+    grid-template-columns: 93% 7%;
+    margin-bottom: 2rem;
+    margin-top: 0.8rem;
+
+    ion-icon {
+      bottom: 1px;
+      font-size: 2rem;
+      position: relative;
+    }
+  }
+
+  %field {
+    align-items: center;
+    color: $text-color;
+    cursor: pointer;
+    display: grid;
+    font-size: 1.4rem;
+    grid-template-columns: 15% 78% 7%;
+    height: 50px;
+    margin-top: $grid-gap;
+
+    ion-icon {
+      font-size: 2rem;
+    }
+  }
+
+  .field-icon--selected {
+    color: $primary;
+  }
+
+  .field___library-record-name {
+    @extend %field;
+  }
+
+  .field___group {
+    @extend %field;
+  }
+
+  .field___category {
+    @extend %field;
+
+    .category-icon {
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.4rem;
+      padding: 7px;
+    }
+
+    .category-name {
+      color: #000;
+    }
+  }
+
+  .field___description {
+    @extend %field;
+
+    ion-input {
+      color: #000;
+    }
+  }
+
+  .field___date {
+    @extend %field;
+
+    ion-datetime {
+      padding-left: 0;
+    }
+  }
+
+  .field___payment {
+    @extend %field;
+
+    margin-bottom: 3rem;
+
+    ion-select {
+      color: #000;
+
+      .select-icon  {
+        display: none !important;
+      }
+    }
+  }
+}

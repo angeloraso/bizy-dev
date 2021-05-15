@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button (action)="clearCache()"></back-button>
+
+    <ion-title>{{title}}</ion-title>
+
+    <ion-buttons slot="end" *ngIf="this.editMode">
+      <ion-icon class="header-icon" name="trash-outline" (click)="showDeleteAlert()"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="category-component">
+
+  <div class="category__test-card">
+
+    <ion-icon [ngStyle]="{'background-color': category.color}" [name]="category.icon"></ion-icon>
+
+    <span>{{fakeCardName}}</span>
+
+  </div>
+
+  <div class="category-content">
+
+    <ion-item class="category__field">
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input type="text" [(ngModel)]="category.name" (ngModelChange)="fakeCardName = $event;"></ion-input>
+    </ion-item>
+
+    <div class="category__field">
+      <color-picker [(color)]="category.color"></color-picker>
+    </div>
+
+    <div class="category__field">
+      <icon-picker [(icon)]="category.icon"></icon-picker>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<confirm-footer
+  confirm="Save"
+  (cancelClick)="goBack()"
+  (confirmClick)="save()">
+</confirm-footer>

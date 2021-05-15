@@ -1,0 +1,24 @@
+<ion-split-pane contentId="side-menu" when="md" (ionSplitPaneVisible)="menuChageVisibility($event)">
+  <ion-menu contentId="side-menu">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="side-menu-component">
+
+      <ion-list>
+        <ion-item class="side-menu__option" *ngFor="let option of options" (click)="showOption(option)">
+          <ion-icon class="side-menu__option__icon" [name]="option.icon" [ngClass]="{'side-menu__option--active': option.active}"></ion-icon>
+          <ion-label class="side-menu__option__text" [ngClass]="{'side-menu__option--active': option.active}">{{option.title}}</ion-label>
+          <span *ngIf="badge?.show && (badge?.path === option.path)" class="notification-badge"></span>
+        </ion-item>
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="side-menu"></ion-router-outlet>
+</ion-split-pane>

@@ -1,0 +1,72 @@
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.group-picker-component {
+  align-items: center;
+  color: $text-color;
+  cursor: pointer;
+  display: grid;
+  font-size: 1.4rem;
+  grid-template-columns: 15% 78% 7%;
+  height: 50px;
+  margin-top: $grid-gap;
+
+  ion-icon {
+    font-size: 2rem;
+  }
+
+  span {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.groups-modal-component {
+  .group-grid {
+    display: grid;
+    gap: $grid-gap;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+
+  .selectable-group-card {
+    @include card-styles;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+
+    .group__color {
+      align-self: center;
+      border-radius: 50%;
+      height: 2rem;
+      width: 2rem;
+    }
+
+    .group__name-description {
+      align-items: flex-start;
+      color: $text-color;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .group__name {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .group__description {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .group__checkbox {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .selectable-group-card--checked {
+    background-color: lighten($primary, 55%);
+  }
+}

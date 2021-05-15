@@ -1,0 +1,92 @@
+@import 'src/styles/mixins';
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+$card-height: 100px;
+
+.analytics-component {
+  .abstract-section {
+    @include card-styles;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    height: 180px;
+    margin-bottom: $grid-gap;
+  }
+
+  .abstract-section__title {
+    color: $primary;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .abstract-section__month-cash-flow {
+    display: flex;
+    padding-left: 5px;
+
+    label {
+      color: $text-color;
+      font-size: 1.8rem;
+      margin-right: 5px;
+    }
+
+    span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      justify-self: flex-end;
+    }
+  }
+
+  .earnings {
+    color: $income;
+  }
+
+  .loses {
+    color: $expense;
+  }
+
+  .abstract-section__best-user {
+    align-items: center;
+    color: $text-color;
+    display: flex;
+    font-size: 1.6rem;
+    padding-left: 5px;
+
+    ion-icon {
+      color: $gold;
+      font-size: 2rem;
+      margin-right: 10px;
+    }
+  }
+
+  .analytics-section {
+    @include card-styles;
+    display: grid;
+    height: $card-height !important;
+    margin-bottom: $grid-gap;
+    place-items: center;
+  }
+
+  .img-to-left {
+    grid-template-columns: 40% 60%;
+  }
+
+  .img-to-right {
+    grid-template-columns: 60% 40%;
+  }
+
+  .section__img {
+    height: 80px;
+  }
+
+  .section__text {
+    color: $primary;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .coming-soon {
+    opacity: 0.7;
+  }
+}

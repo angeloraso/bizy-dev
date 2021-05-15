@@ -1,0 +1,8 @@
+<div class="select-img-component">
+  <ion-avatar
+    *ngFor="let img of imgs"
+    class="select-img__avatar"
+    (click)="selectImg(img)">
+    <img [src]="img"/>
+  </ion-avatar>
+</div>

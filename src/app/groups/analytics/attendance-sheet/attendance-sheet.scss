@@ -1,0 +1,23 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+@import 'src/styles/colors';
+
+.attendance-sheet__date {
+  @include card-styles;
+  color: $text-color;
+  display: grid;
+  font-size: 1.2rem;
+  height: 50px;
+  margin: 1rem 3rem;
+  place-items: center;
+  text-align: center;
+  width: auto;
+}
+
+.attendance-sheet-component {
+  .user-grid {
+    display: grid;
+    gap: $grid-gap;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+}

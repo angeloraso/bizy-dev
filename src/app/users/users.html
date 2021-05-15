@@ -1,0 +1,40 @@
+
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button *ngIf="groupMode"></back-button>
+
+    <ion-title>{{title}}</ion-title>
+
+  </ion-toolbar>
+
+  <ion-searchbar *ngIf="users?.length > 0" debounce="250" (ionChange)="search = $event.detail.value"></ion-searchbar>
+
+</ion-header>
+
+<ion-content class="users-component">
+
+  <div class="users--empty" *ngIf="users?.length === 0">
+    <img src="/assets/img/users_empty.svg"/>
+    <span>Create a user to boost your activities!</span>
+  </div>
+
+  <div class="user-grid">
+
+    <user-card
+      *ngFor="let user of users | search: search : ['name']"
+      (onclick)="editUser(user)"
+      (action)="userAction($event, user)"
+      [user]="user">
+    </user-card>
+
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="addUser($event)">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

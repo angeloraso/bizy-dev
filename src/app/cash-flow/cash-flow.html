@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <back-button *ngIf="showBackButton"></back-button>
+
+    <ion-title>Cash flow</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-icon class="header-icon" name="pricetags-outline" (click)="goTo('categories')"></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-icon class="header-icon" name="library-outline" (click)="goTo('library')"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="cash-flow-component">
+
+  <div class="cash-flow--empty" *ngIf="dailyCashFlows?.length === 0">
+    <img src="/assets/img/cash-flow_empty.svg"/>
+    <span>Create a registry to start growing!</span>
+  </div>
+
+  <div class="total-card" *ngIf="dailyCashFlows?.length > 0">
+    <img  class="total-card__img" *ngIf="total >= 0" src="/assets/img/cash-flow_income_total.svg"/>
+    <img  class="total-card__img" *ngIf="total < 0" src="/assets/img/cash-flow_expense_total.svg"/>
+    <span class="total-card__text" [ngClass]="{'income': total >= 0, 'expense': total < 0}">$ {{total}}</span>
+  </div>
+
+  <div class="daily-cash-flows" *ngIf="dailyCashFlows?.length > 0">
+
+    <daily-cash-flow
+      *ngFor="let dailyCashFlow of dailyCashFlows"
+      [dailyCashFlow]="dailyCashFlow"
+      (onclick)="editRecord($event)">
+    </daily-cash-flow>
+
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="goTo('new')">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

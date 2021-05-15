@@ -1,0 +1,32 @@
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+.users-component {
+  .users--empty {
+    display: grid;
+    height: 100%;
+    opacity: 0.7;
+    place-items: center;
+    width: 100%;
+
+    img {
+      height: 15rem;
+      width: 15rem;
+    }
+
+    span {
+      align-self: start;
+      color: $text-color;
+      font-size: 1.6rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+  }
+
+  .user-grid {
+    display: grid;
+    gap: $grid-gap;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    padding-bottom: 5rem;
+  }
+}

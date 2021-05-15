@@ -1,0 +1,20 @@
+{
+  "extends": "stylelint-config-sass-guidelines",
+  "ignoreFiles": [
+    "src/app/core/auth/login/login.scss",
+    "src/app/cash-flow/components/cash-flow-toggle/cash-flow-toggle.scss"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "selector-type-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "at-rule-no-unknown": null,
+    "no-descending-specificity": null,
+    "selector-class-pattern": null,
+    "max-nesting-depth": null,
+    "scss/selector-no-redundant-nesting-selector": null,
+    "selector-max-compound-selectors": 4
+  }
+}
