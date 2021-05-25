@@ -33,21 +33,21 @@ export class CheckForUpdateService {
 
     async newVersionToast() {
       const toast = await this.toastController.create({
-        header: 'Nueva versión!',
-        message: 'Existe una nueva versión disponible. Desea activarla ahora?',
+        header: 'New version!',
+        message: 'There is a new version available. Do you want to activate it now?',
         position: 'bottom',
         cssClass: 'toast--new-version',
         buttons: [
           {
             role: 'cancel',
-            text: 'Despues',
+            text: 'Later',
             handler: () => {
               this.logService.info('New version rejected');
             }
           }, {
             side: 'end',
             icon: 'rocket',
-            text: 'Actualizar',
+            text: 'Update',
             handler: () => {
               window.location.reload();
             }
