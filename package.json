@@ -1,6 +1,6 @@
 {
-  "name": "bizy",
-  "version": "0.0.1",
+  "name": "bizy-dev",
+  "version": "1.0.0",
   "author": "Angelo Raso",
   "scripts": {
     "start": "ionic serve -o",
@@ -9,7 +9,7 @@
     "lint": "eslint -c .eslintrc.js --ext .ts,.js ./src/app --fix; stylelint '**/*.scss' --fix; exit 0",
     "ios": "npm run build; ionic cap copy; ionic cap sync; ionic cap open ios",
     "analyzer": "ng build --statsJson=true; webpack-bundle-analyzer ./www/stats.json",
-    "deploy": "npm run lint; npm run build; firebase deploy --only hosting:bizy-app"
+    "deploy": "npm run lint; npm run build; firebase deploy --only hosting:bizy-dev"
   },
   "private": true,
   "dependencies": {

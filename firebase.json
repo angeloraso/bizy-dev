@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "bizy-app",
+    "site": "bizy-dev",
     "public": "www",
     "ignore": [
       "firebase.json",
